@@ -16,7 +16,8 @@ export const EventCard = ({ event, cardId, user, num }) => {
     const eventid = event.id;
     const title = event.title;
     const category = event.category;
-    const labels = event.labels;
+    // const labels = event.labels;
+    const labels = event.labels ? event.labels.slice(0, 2).join(', ') : null;
     const description = event.description;
     const predicted_attendance = event.phq_attendance;
     const latitude = event.location[1];
@@ -79,7 +80,7 @@ export const EventCard = ({ event, cardId, user, num }) => {
                         <p className="text-gray-700 text-md">
                             Labels
                         </p>
-                        <p className="text-gray-700">{event.labels.slice(0, 2).join(', ')}</p>
+                        <p className="text-gray-700">{labels}</p>
                     </div>
                     {event.phq_attendance > 0 ?
                         <div className='w-full flex justify-between'>
