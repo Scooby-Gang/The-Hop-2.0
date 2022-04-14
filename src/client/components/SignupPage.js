@@ -6,6 +6,7 @@ export const SignupPage = () => {
 
     let navigate = useNavigate();
     const createUser = () => {
+        console.log()
         let username = document.getElementById("usernameCreateUserForm").value;
         let password = document.getElementById("passwordCreateUserForm").value;
         let email = document.getElementById("emailCreateUserForm").value;
@@ -17,6 +18,7 @@ export const SignupPage = () => {
             credentials: "include",
             body: JSON.stringify({ "username": username, "password": password, "email": email }),
         }).then(async (response) => {
+            console.log()
             if (response.status === 200) {
                 // const user = await response.json();
                 // setUser(user);
