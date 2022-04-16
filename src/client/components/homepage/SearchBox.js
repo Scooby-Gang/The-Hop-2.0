@@ -105,6 +105,7 @@ export const SearchBox = ({ apiEvents, setApiEvents, setMapBase, mapRef, setCirc
       <div className="flex mt-4 mb-3">
         <div className="text-md font-semibold text-gray-500 mt-2 mr-1">Location: </div>
         <AutoComplete id="locationForm"
+        data-testid="searchInput"
           className="
          w-72
          px-3

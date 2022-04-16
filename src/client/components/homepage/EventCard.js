@@ -16,8 +16,7 @@ export const EventCard = ({ event, cardId, user, num }) => {
     const eventid = event.id;
     const title = event.title;
     const category = event.category;
-    // const labels = event.labels;
-    const labels = event.labels ? event.labels.slice(0, 2).join(', ') : null;
+    const labels = event.labels;
     const description = event.description;
     const predicted_attendance = event.phq_attendance;
     const latitude = event.location[1];
