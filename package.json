@@ -10,7 +10,9 @@
     "start": "cross-env NODE_ENV=production nodemon ./src/server/server.js",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"cross-env NODE_ENV=development nodemon ./src/server/server.js\" ",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,7 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
+    "cypress": "^9.5.4",
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
     "express": "^4.17.3",

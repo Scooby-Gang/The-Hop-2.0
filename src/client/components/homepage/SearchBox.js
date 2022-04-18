@@ -101,7 +101,7 @@ export const SearchBox = ({ apiEvents, setApiEvents, setMapBase, mapRef, setCirc
     <div
       id="SearchBox"
       className="flex bg-slate-50 flex-col justify-center items-center w-full p-5 pl-2 pb-2"
-    >
+      >
       <div className="flex mt-4 mb-3">
         <div className="text-md font-semibold text-gray-500 mt-2 mr-1">Location: </div>
         <AutoComplete id="locationForm"
