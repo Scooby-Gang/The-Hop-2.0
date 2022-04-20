@@ -18,7 +18,7 @@ const sessionRouter = require("./routes/sessionRouter.js");
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-const SQL_URI = `postgres://${process.env.POSTGRESQL_USER}:${process.env.POSTGRESQL_PASSWORD}@heffalump.db.elephantsql.com/${process.env.POSTGRESQL_USER}`;
+const SQL_URI = process.env.POSTGRESQL_URI;
 
 // handle requests for static files
 app.use(express.static(__dirname + '/build')); 

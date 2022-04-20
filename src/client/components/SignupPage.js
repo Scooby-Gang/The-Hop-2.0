@@ -45,7 +45,7 @@ export const SignupPage = () => {
                             >
                                 <p className="text-center text-xl font-semibold mx-4 mb-2 text-gray-700">Create New Account</p>
                             </div>
-                            <div className="mb-6">
+                            <div data-testid='newUsername' className="mb-6">
                                 <input
                                     type="text"
                                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -54,7 +54,7 @@ export const SignupPage = () => {
                                 />
                             </div>
 
-                            <div className="mb-6">
+                            <div data-testid='newPassword' className="mb-6">
                                 <input
                                     type="password"
                                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -63,7 +63,7 @@ export const SignupPage = () => {
                                 />
                             </div>
 
-                            <div className="mb-6">
+                            <div data-testid='newEmail' className="mb-6">
                                 <input
                                     type="text"
                                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
