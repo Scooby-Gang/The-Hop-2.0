@@ -1,0 +1,73 @@
+[
+    {
+        "aviation_rank": null,
+        "brand_safe": true,
+        "category": "performing-arts",
+        "country": "US",
+        "description": "This laugh out loud love letter to the theater tells the story of Michael Dorsey, a talented but difficult actor who struggles to find work until one show stopping act of desperation lands him the role of a lifetime. Featuring a hilarious Tony winning book by Robert Horn and an outrageously clever score by 2018 Tony winner David Yazbek, The Bands Visit, Dirty Rotten Scoundrels, this New York Times Critics Pick is a joyful delight (The Washington Post) that is so packed with punchlines, it should be called a jukebox musical! (Bloomberg). In these turbulent times, when the world seems out of balance, we need a place to let the good times roll, raves Rolling Stone. TOOTSIE is it!",
+        "duration": 0,
+        "end": "2022-04-20T02:30:00Z",
+        "entities": [{
+            "entity_id": "37w5jfUXE2pVTAn6tpUcFUD",
+            "formatted_address": "255 South Almaden Boulevard\nSan Jose, CA 95113\nUnited States of America",
+            "name": "San Jose Center for the Performing Arts",
+            "type": "venue"
+        }],
+        "first_seen": "2022-02-08T00:37:58Z",
+        "geo": {"geometry": {
+            "coordinates": [-121.8924797, 37.3296733],
+            "type": "Point"
+        }},
+        "id": "BbBZAgj6ePRD8iqcsv",
+        "labels": ["entertainment", "music", "performing-arts"],
+        "local_rank": 69,
+        "location": [-121.89257520995157, 37.32961211956653],
+        "phq_attendance": 1446,
+        "place_hierarchies": ["6295630", "6255149", "6252001", "5332921"],
+        "private": false,
+        "rank": 53,
+        "relevance": 0,
+        "scope": "locality",
+        "start": "2022-04-20T02:30:00Z",
+        "state": "active",
+        "timezone": "America/Los_Angeles",
+        "title": "Tootsie (touring)",
+        "updated": "2022-02-08T00:39:59"
+    },
+    {
+        "aviation_rank": 45,
+        "brand_safe": true,
+        "category": "sports",
+        "country": "US",
+        "description": "",
+        "duration": 0,
+        "end": "2022-04-20T02:30:00Z",
+        "entities": [{
+            "entity_id": "y6H7VRB6DWY4F3uTBVcdR6",
+            "formatted_address": "525 W Santa Clara St\nSan Jose, CA 95113\nUnited States of America",
+            "name": "SAP Center at San Jose",
+            "type": "venue"
+        }],
+        "first_seen": "2021-07-23T01:33:41Z",
+        "geo": {"geometry": {
+            "coordinates": [-121.9012363, 37.3327303],
+            "type": "Point"
+        }},
+        "id": "7ysKGGMMmqsbHukKYb",
+        "labels": ["ice-hockey", "nhl", "sport"],
+        "local_rank": 91,
+        "location": [-121.90122089379993, 37.33282405287285],
+        "phq_attendance": 17177,
+        "place_hierarchies": ["6295630", "6255149", "6252001", "5332921", "5393021", "5392171"],
+        "predicted_end": "2022-04-20T05:10:00Z",
+        "private": false,
+        "rank": 75,
+        "relevance": 0,
+        "scope": "locality",
+        "start": "2022-04-20T02:30:00Z",
+        "state": "active",
+        "timezone": "America/Los_Angeles",
+        "title": "Columbus Blue Jackets vs San Jose Sharks",
+        "updated": "2022-04-20T00:12:34Z"
+    }
+]
