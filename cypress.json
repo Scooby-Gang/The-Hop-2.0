@@ -1,6 +1,7 @@
 {
     "baseUrl": "http://localhost:8080",
     "env": {
-        "searchBar": "searchInput"
+        "searchBar": "searchInput",
+        "googleMap": "#app > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2)"
     }
 }
