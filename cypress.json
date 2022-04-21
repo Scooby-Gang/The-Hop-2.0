@@ -4,6 +4,8 @@
         "searchBar": "searchInput",
         "newUsername":"newUsername",
         "newPassword": "newPassword",
-        "newEmail":"newEmail"
+        "newEmail": "newEmail", 
+        "usernameLogin": "usernameLogin",
+        "passwordLogin": "passwordLogin"
     }
 }
