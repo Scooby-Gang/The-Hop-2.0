@@ -1,0 +1,18 @@
+{
+    "type": "cors",
+    "url": "https://maps.googleapis.com/maps/api/geocode/json?…C+USA&key=AIzaSyB-qLcBsh_krpZ-d7igw22QozM77sgEULo",
+    "redirected": false,
+    "status": 200,
+    "ok": true,
+    "body": "ReadableStream",
+        "locked": true,
+    "bodyUsed": true,
+    "headers": "Headers",
+    "ok": true,
+    "redirected": false,
+    "status": 200,
+    "statusText": "",
+    "type": "cors",
+    "url": "https://maps.googleapis.com/maps/api/geocode/json?address=San+Jose%2C+CA%2C+USA&key=AIzaSyB-qLcBsh_krpZ-d7igw22QozM77sgEULo"
+
+}

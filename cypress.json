@@ -6,6 +6,7 @@
         "newPassword": "newPassword",
         "newEmail": "newEmail", 
         "usernameLogin": "usernameLogin",
-        "passwordLogin": "passwordLogin"
+        "passwordLogin": "passwordLogin",
+        "googleMap": "#app > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2)"
     }
 }

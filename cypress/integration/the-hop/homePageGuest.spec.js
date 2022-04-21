@@ -1,5 +1,5 @@
 //variables - we can leverage Cypress.env to create file-wide variables, that way if we need to change the variable value we only have to do it in one place - cypress.json
-const searchBarId = Cypress.env('searchBar');
+const { searchBar, googleMap } = Cypress.env();
 let todayDate = new Date().toISOString().slice(0, 10);
 
 
@@ -8,15 +8,29 @@ context('Home Page functionality', () => {
         cy.visit('/')
     })
     
-    it('has a login button that will bring you to log in page when clicked', () => {
+    it('has a login button that will bring you to log in page when clicked and a return to app link that brings us back to home', () => {
         cy.findByRole('button', {name: /login/i }).should('exist');
         cy.findByRole('button', {name: /login/i }).click();
+        cy.location('pathname').should('eq', '/login');
         cy.findByRole('button', {name: /return to app/i}).should('exist');
         cy.findByRole('button', {name: /return to app/i}).click();
+        cy.location('pathname').should('eq', '/');
+    })
+
+    it(' displays an alert pop-up if you try to submit an empty location search', () => {
+        const inputField = cy.findByTestId(searchBar);
+        inputField.should('exist');
+        inputField.should('contain.text', '');
+        cy.findByRole('button', {name: /search events/i}).should('exist');
+        cy.findByRole('button', {name: /search events/i}).click();
+        cy.on('window:alert',(txt)=>{
+            //Mocha assertions
+            expect(txt).to.contains('Please enter a valid location');
+         })
     })
     
     it('has a location input field that is fully functional', () => {
-        const inputField = cy.findByTestId(searchBarId);
+        const inputField = cy.findByTestId(searchBar);
 
         inputField.should('exist');
         inputField.click().type('This Is A Test{leftArrow}{leftArrow}{leftArrow}{leftArrow}{leftArrow}{backspace}{backspace}{backspace}{backspace} @#$%&!() {selectAll}{backspace}', {delay: 20});
@@ -55,10 +69,52 @@ context('Home Page functionality', () => {
         })
     })
 
-    it('has a "search events" button that submits location input field and all of the correct options as a query to update our map', () => {
-        cy.findByRole('button', {name: /search events/i}).should('exist');
-        cy.findByRole('button', {name: /search events/i}).click();
+    it('has a map that can be navigated and features working as intended', () => {
+        const fullScreen = cy.findByRole('button', { name: /toggle fullscreen view/i });
+        // const map = cy.get('#app > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2)')
+        cy.findByRole('menuitemradio', { name: /show satellite imagery/i }).click().wait(500);
+        fullScreen.click().wait(500);
+        cy.get(googleMap).trigger('mousedown', 'center').trigger('mousemove', 115, 240, {force: true}).wait(1000).trigger('mousemove', 240, 125, {force: true}).wait(1000).trigger('mouseup', 'center')
+        cy.findByRole('menuitemcheckbox', { name: /labels/i }).click();
+        cy.findByRole('button', {  name: /zoom in/i}).click().click()
+        cy.findByRole('menuitemradio', { name: /show satellite imagery/i }).click().wait(500);
+        cy.findByRole('menuitemcheckbox', { name: /labels/i }).click();
+        cy.findByRole('button', {  name: /zoom out/i}).click().click()
+        fullScreen.click().wait(500);
+        cy.findByRole('menuitemradio', {  name: /show street map/i}).click().wait(1500)
+        cy.findByRole('menuitemcheckbox', { name: /terrain/i }).click().wait(1000);
+        cy.findByRole('button', {  name: /zoom in/i}).click().wait(1500)
+        cy.findByRole('menuitemradio', {  name: /show street map/i}).click().wait(500)
+        cy.findByRole('menuitemcheckbox', { name: /terrain/i }).click().wait(1000);
+        
     })
+
+    
+
+    // it('has a "search events" button that submits location input field and all of the correct options as a query to update our map using a fixture for stubbing network responses', () => {
+    //     let eventsData;
+    //     let mapData;
+    //     cy.fixture('events').then((data) => {
+    //         cy.log('Events DATA: ', data);
+    //         eventsData = data;
+    //     });
+    //     // cy.fixture('map').then((data) => {
+    //     //     // cy.log('Events DATA: ', data);
+    //     //     mapData = data;
+    //     // });
+    //     cy.intercept('GET', 'https://api.predicthq.com/v1/events/*', eventsData).as('getEvents')
+    //     // cy.intercept('GET', '**/maps.googleapis.com/maps/api/geocode/*', mapData).as('getMap');
+
+        
+    //     cy.findByRole('button', {name: /search events/i}).should('exist');
+    //     cy.findByRole('button', {name: /search events/i}).click();
+    //     // cy.wait('@getMap').then((res) => {
+    //     //     cy.log('Response: ', res)
+    //     // })
+    //     cy.wait('@getEvents').then((res) => {
+    //         cy.log('Response: ', res)
+    //     })
+    // })
 
 
 })
