@@ -14,6 +14,7 @@ context('Signup functionality', () => {
     it('has a login button that will bring you to homepage page when clicked', () => {
         cy.findByRole('button', {name: /login/i }).should('exist');
         cy.findByRole('button', {name: /login/i }).click();
+        cy.wait(1000)  
     });
 
     it('has a register button that will bring you to signup page when clicked', () => {
@@ -65,6 +66,7 @@ context('Signup functionality', () => {
         cy.on('window:alert', (text) => {
             expect(text).to.equal('Wrong password!');
         });   
+        cy.wait(1000)  
     })
     
     it('should login with correct username and password and redirect to the home page', ()=> {
