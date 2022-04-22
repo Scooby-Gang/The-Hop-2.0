@@ -6,6 +6,7 @@ let todayDate = new Date().toISOString().slice(0, 10);
 context('Home Page functionality', () => {
     it('successfully loads', () => {
         cy.visit('/')
+        cy.location('pathname').should('eq', '/');
     })
     
     it('has a login button that will bring you to log in page when clicked and a return to app link that brings us back to home', () => {
@@ -34,7 +35,7 @@ context('Home Page functionality', () => {
 
         inputField.should('exist');
         inputField.click().type('This Is A Test{leftArrow}{leftArrow}{leftArrow}{leftArrow}{leftArrow}{backspace}{backspace}{backspace}{backspace} @#$%&!() {selectAll}{backspace}', {delay: 20});
-        inputField.type('San Jose{enter}')
+        inputField.type('San Jose{enter}');
     })
 
     it('has a "more options" button that adds a suite of filters/options for the location search', () => {
@@ -91,30 +92,53 @@ context('Home Page functionality', () => {
 
     
 
-    // it('has a "search events" button that submits location input field and all of the correct options as a query to update our map using a fixture for stubbing network responses', () => {
-    //     let eventsData;
-    //     let mapData;
-    //     cy.fixture('events').then((data) => {
-    //         cy.log('Events DATA: ', data);
-    //         eventsData = data;
-    //     });
-    //     // cy.fixture('map').then((data) => {
-    //     //     // cy.log('Events DATA: ', data);
-    //     //     mapData = data;
-    //     // });
-    //     cy.intercept('GET', 'https://api.predicthq.com/v1/events/*', eventsData).as('getEvents')
-    //     // cy.intercept('GET', '**/maps.googleapis.com/maps/api/geocode/*', mapData).as('getMap');
+    it('has a "search events" button that submits location input field and all of the correct options as a query to update our map using a fixture for stubbing network responses', () => {
+        let eventsData;
+        let mapData;
+        cy.fixture('events').then((data) => {
+            cy.log('Events DATA: ', data);
+            eventsData = data;
+        });
+        // cy.fixture('map').then((data) => {
+        //     // cy.log('Events DATA: ', data);
+        //     mapData = data;
+        // });
+        cy.intercept('GET', 'https://api.predicthq.com/v1/events/*', eventsData).as('getEvents')
+        // cy.intercept('GET', '**/maps.googleapis.com/maps/api/geocode/*', mapData).as('getMap');
 
         
-    //     cy.findByRole('button', {name: /search events/i}).should('exist');
-    //     cy.findByRole('button', {name: /search events/i}).click();
-    //     // cy.wait('@getMap').then((res) => {
-    //     //     cy.log('Response: ', res)
-    //     // })
-    //     cy.wait('@getEvents').then((res) => {
-    //         cy.log('Response: ', res)
-    //     })
-    // })
+        cy.findByRole('button', {name: /search events/i}).should('exist');
+        cy.findByRole('button', {name: /search events/i}).click();
+        // cy.wait('@getMap').then((res) => {
+        //     cy.log('Response: ', res)
+        // })
+        cy.wait('@getEvents').then((res) => {
+            cy.log('Response: ', res)
+        })
+        
+    })
 
+    it('displays a list of events, with its info as well as options', () => {
+        cy.findByTestId('eventsList').should('exist');
+        cy.findByTestId('numOfEvents').find('p').should('contain.text', 'No. of events found:');
+        cy.findAllByTestId('eventCard').first().within(() => {
+            cy.get('h5').should('exist');
+            cy.get('p').first().should('contain.text', 'Category').next().should('exist');
+            cy.get('p').eq(2).should('contain.text', 'Labels').next().should('exist');
+            cy.get('p').eq(4).should('contain.text', 'Predicted Attendance').next().should('exist');
+            cy.get('p').eq(6).should('contain.text', 'Start Time').next().should('exist');
+            cy.get('p').eq(8).should('contain.text', 'End Time').next().should('exist');
+            cy.get('p').eq(10).should('contain.text', 'Venue').next().should('exist');
+            cy.get('p').eq(12).should('contain.text', 'Address').next().should('exist');
+        })
+    })
 
+    it('displays a button to google the event and a save event button that should be disabled unless logged in within the event card', () => {
+        cy.findAllByTestId('eventCard').first().within(() => {
+            cy.findByTestId("magnifyingGlass").should('exist');
+            // cy.findByTestId("magnifyingGlass").click();
+            cy.findByTestId("saveEvent").should('exist')
+            // cy.findByTestId("saveEvent").should('be.disabled')
+        })
+    })
 })
