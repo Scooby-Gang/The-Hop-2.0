@@ -2,6 +2,11 @@
     "baseUrl": "http://localhost:8080",
     "env": {
         "searchBar": "searchInput",
+        "newUsername":"newUsername",
+        "newPassword": "newPassword",
+        "newEmail": "newEmail", 
+        "usernameLogin": "usernameLogin",
+        "passwordLogin": "passwordLogin",
         "googleMap": "#app > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2)"
     }
 }
