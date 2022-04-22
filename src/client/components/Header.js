@@ -130,6 +130,7 @@ export const Header = ({ user, setUser, setLoggingOut }) => {
               hover:bg-gray-100
             "
                       href="#"
+                      onClick={() => navHome()}
                     >
                       <img id='profPic' src="/img/bunny-profile.png" />
                       @{user.username}

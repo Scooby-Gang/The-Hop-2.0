@@ -9,10 +9,12 @@ userController.getUser = async (req, res, next) => {
   try {
     const username = req.params.id ? req.params.id : req.body.username;
 
+    console.log(username);
     if (!username) {
+      console.log('not working')
       return next("Missing username in userController.getUser");
     }
-
+    console.log('passed')
     const sqlQuery = `
           SELECT userid, username, email, home_location FROM users 
           WHERE username = $1
@@ -21,8 +23,10 @@ userController.getUser = async (req, res, next) => {
     const params = [username];
 
     const data = await db.query(sqlQuery, params);
+    console.log(data);
 
     res.locals.getUser = data.rows[0] ? data.rows[0] : null;
+    console.log(res.locals.getUser)
     return next();
   } catch (err) {
     return next({
