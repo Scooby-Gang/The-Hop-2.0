@@ -12,7 +12,6 @@ userController.getUser = async (req, res, next) => {
     if (!username) {
       return next("Missing username in userController.getUser");
     }
-
     const sqlQuery = `
           SELECT userid, username, email, home_location FROM users 
           WHERE username = $1
@@ -21,7 +20,7 @@ userController.getUser = async (req, res, next) => {
     const params = [username];
 
     const data = await db.query(sqlQuery, params);
-
+    
     res.locals.getUser = data.rows[0] ? data.rows[0] : null;
     return next();
   } catch (err) {

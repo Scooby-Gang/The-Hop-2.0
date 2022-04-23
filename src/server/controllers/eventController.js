@@ -61,16 +61,16 @@ eventController.saveEvent = async (req, res, next) => {
     // if it's not we need to save to the events table
     const sqlQuery1 = `
       INSERT INTO events (eventid, title, category, labels, description,
-      predicted_attendance, latitude, longitude, start_time,
-      private, rank, local_rank, address)
+      predicted_attendance, latitude, longitude, start_time, private,
+       rank, local_rank, address)
 
       VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
 
       ON CONFLICT (eventid) DO NOTHING
 
       RETURNING eventid, title, category, labels, description,
-      predicted_attendance, latitude, longitude, start_time,
-      private, rank, local_rank, address
+      predicted_attendance, latitude, longitude, start_time, private,
+       rank, local_rank, address
     ;`;
 
     const params1 = [
