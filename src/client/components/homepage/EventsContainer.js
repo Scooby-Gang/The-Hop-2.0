@@ -4,9 +4,9 @@ import { EventCard } from './EventCard';
 export const EventsContainer = ({ apiEvents, user }) => {
     const numEvents = apiEvents.length;
     return (
-        <div className="h-auto bg-neutral-50 relative">
+        <div data-testid="eventsList" className="h-auto bg-neutral-50 relative">
             {apiEvents.length > 0 ?
-                <div className="border-b py-0.5 flex justify-around  bg-sky-100 ">
+                <div data-testid="numOfEvents" className="border-b py-0.5 flex justify-around  bg-sky-100 ">
                     <p className='text-md font-medium text-gray-600'>No. of events found: <span className="font-semibold text-cyan-800">{numEvents}</span></p>
                 </div>
                 :

@@ -50,7 +50,7 @@ export const LoginPage = ({ reRender }) => {
                             >
                                 <p className="text-center text-lg font-semibold mx-4 mb-2 text-gray-700">The Hop</p>
                             </div>
-                            <div className="mb-6">
+                            <div data-testid='usernameLogin' className="mb-6">
                                 <input
                                     type="text"
                                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -59,7 +59,7 @@ export const LoginPage = ({ reRender }) => {
                                 />
                             </div>
 
-                            <div className="mb-6">
+                            <div data-testid='passwordLogin' className="mb-6">
                                 <input
                                     type="password"
                                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -71,6 +71,7 @@ export const LoginPage = ({ reRender }) => {
                             <div className="text-center lg:text-left">
                                 <button
                                     type="button"
+                                    id='loginButton'
                                     className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-md leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                                     onClick={() => verifyUser()}
                                 >
@@ -78,13 +79,14 @@ export const LoginPage = ({ reRender }) => {
                                 </button>
                                 <p className="text-md font-semibold mt-3 pt-1 mb-0">
                                     Don't have an account?
-                                    <button
+                                    <button id='registerRedirectButton'
                                         onClick={() => navigate('/signup')}
                                         className="ml-2 text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                                     > Register
                                     </button>
                                 </p>
-                                <button className="text-md font-semibold mt-2 pt-1 mb-0 text-emerald-600 hover:text-emerald-800 focus:text-emerald-800 transition duration-200 ease-in-out"
+                                <button id='returnToAppButton'
+                                    className="text-md font-semibold mt-2 pt-1 mb-0 text-emerald-600 hover:text-emerald-800 focus:text-emerald-800 transition duration-200 ease-in-out"
                                     onClick={() => navigate('/')}>
                                     Return to app
                                 </button>
