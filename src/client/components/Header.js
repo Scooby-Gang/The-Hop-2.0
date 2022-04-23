@@ -150,6 +150,7 @@ export const Header = ({ user, setUser, setLoggingOut }) => {
               text-gray-700
               hover:bg-gray-100
             "
+            
                       href="#"
                     >
                       {user.email}
