@@ -37,7 +37,7 @@ export const SavedEventCard = ({ event, cardId, user, userEvents, setUserEvents,
             })
     }
     return (
-        <div id='savedEventCard' className="flex justify-center mb-4">
+        <div data-testid="testEventCard" id='savedEventCard' className="flex justify-center mb-4">
             <div className="block px-6 py-4 rounded-lg shadow-lg w-1/2 bg-white">
                 <h5 className="text-gray-600 text-xl leading-tight font-semibold">{index + 1}. {event.title}</h5>
                 <p className="text-gray-600 text-base ">{startTime}</p>

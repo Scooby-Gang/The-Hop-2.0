@@ -94,7 +94,7 @@ context('Home Page functionality', () => {
 
     it('has a "search events" button that submits location input field and all of the correct options as a query to update our map using a fixture for stubbing network responses', () => {
         let eventsData;
-        let mapData;
+        // let mapData;
         cy.fixture('events').then((data) => {
             cy.log('Events DATA: ', data);
             eventsData = data;
