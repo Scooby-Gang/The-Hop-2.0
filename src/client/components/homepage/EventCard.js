@@ -62,7 +62,7 @@ export const EventCard = ({ event, cardId, user, num }) => {
     }
 
     return (
-        <div className="flex justify-center">
+        <div data-testid="eventCard" className="flex justify-center">
             <div className="rounded-lg shadow-lg bg-white w-[44vh]">
                 {/* <a href="#!">
                     <img className="rounded-t-lg" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt="" />
@@ -79,7 +79,7 @@ export const EventCard = ({ event, cardId, user, num }) => {
                         <p className="text-gray-700 text-md">
                             Labels
                         </p>
-                        <p className="text-gray-700">{event.labels.slice(0, 2).join(', ')}</p>
+                        <p className="text-gray-700">{labels}</p>
                     </div>
                     {event.phq_attendance > 0 ?
                         <div className='w-full flex justify-between'>
@@ -139,16 +139,16 @@ export const EventCard = ({ event, cardId, user, num }) => {
                             </button>
                             :
                             <div className="text-white mr-[92px]">.</div>}
-                        <SearchIcon className="mt-4 p-0.5 rounded-md shadow-sm text-gray-300 bg-gray-200
+                        <SearchIcon data-testid="magnifyingGlass" className="mt-4 p-0.5 rounded-md shadow-sm text-gray-300 bg-gray-200
                         cursor-pointer hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-300 active:shadow-lg transition duration-150 ease-in-out"
                             style={{ color: "green", fontSize: 35 }}
                             onClick={() => window.open(`https://www.google.com/search?q=${event.title}+${startTime}`, '_blank').focus()}
                         />
                         {JSON.stringify(user) === JSON.stringify({}) ?
-                            <button type="button" className=" cursor-not-allowed opacity-50 mt-4 text-white inline-block px-6 py-2.5 bg-emerald-600 font-medium text-xs leading-tight uppercase rounded shadow-md">
+                            <button data-testid="saveEvent" type="button" className=" cursor-not-allowed opacity-50 mt-4 text-white inline-block px-6 py-2.5 bg-emerald-600 font-medium text-xs leading-tight uppercase rounded shadow-md">
                                 Save Event</button>
                             :
-                            <button type="button" className=" mt-4 inline-block px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-emerald-800 hover:shadow-lg focus:bg-emerald-800
+                            <button data-testid="userSaveEvent" type="button" className=" mt-4 inline-block px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-emerald-800 hover:shadow-lg focus:bg-emerald-800
                             focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out"
                                 onClick={() => saveEvent()}>
                                 Save Event</button>
@@ -159,7 +159,7 @@ export const EventCard = ({ event, cardId, user, num }) => {
                             {event.description}
                         </div>
                     </div>
-                    <div id={`hiddenError${cardId}`} className="hidden text-center">
+                    <div data-testid="alreadySaved" id={`hiddenError${cardId}`} className="hidden text-center">
                         <p className='text-red-600 text-center text-sm mt-2'>Event has been saved already for user {user.username}</p>
                     </div>
                 </div>

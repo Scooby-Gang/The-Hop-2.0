@@ -18,6 +18,10 @@ export const Header = ({ user, setUser, setLoggingOut }) => {
     navigate("/");
   };
 
+  const navUserAccountPage = () => {
+    navigate("")
+  };
+
   const logout = () => {
     setLoggingOut(true);
     setUser({});
@@ -130,6 +134,7 @@ export const Header = ({ user, setUser, setLoggingOut }) => {
               hover:bg-gray-100
             "
                       href="#"
+                      onClick={() => UserAccountPage()}
                     >
                       <img id='profPic' src="/img/bunny-profile.png" />
                       @{user.username}
@@ -150,6 +155,7 @@ export const Header = ({ user, setUser, setLoggingOut }) => {
               text-gray-700
               hover:bg-gray-100
             "
+            
                       href="#"
                     >
                       {user.email}

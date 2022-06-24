@@ -18,7 +18,7 @@ const sessionRouter = require("./routes/sessionRouter.js");
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-const SQL_URI = `postgres://${process.env.POSTGRESQL_USER}:${process.env.POSTGRESQL_PASSWORD}@heffalump.db.elephantsql.com/${process.env.POSTGRESQL_USER}`;
+const SQL_URI = process.env.POSTGRESQL_URI;
 
 // handle requests for static files
 app.use(express.static(__dirname + '/build')); 
@@ -69,7 +69,6 @@ app.use(
 app.use("/api/users", userRouter);
 app.use("/api/events", eventRouter);
 app.use("/auth", sessionRouter);
-
 // home
 app.get("/", (req, res) => {
   return res.sendFile(path.resolve(__dirname, "../../public/index.html"));
@@ -91,8 +90,8 @@ app.use((err, req, res, next) => {
   return res.status(status).json({ message });
 });
 
-app.listen(PORT, () => {
+module.exports = app.listen(PORT, () => {
   console.log("Server started on PORT 3000");
 });
 
-module.exports = app;
+// module.exports = app;
