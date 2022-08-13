@@ -17,9 +17,15 @@ In a hectic society with so much responsibility, spontaneity is all but lost. If
 ## 📓 Table of Contents
 
 -   [New Feature Updated](#updates)
+-   [Before Start](#setup)
 -   [Developers](#developers)
 ## <a name="updates"></a>🔩 New Feature Updated
 - Added Cypress E2E test, check this out if you are interested to make any contribution and let's build this better together
+
+## <a name="setup"></a>🛫 Before Start
+Copy `template.env` and create a `.env` file in the project root.
+- Specify the Postgres database connection URI as `DB_URI`.
+- Secret key for auth as `SECRET_KEY`.
 
 ## <a name="developers"></a> 💻 Developers
 
