@@ -13,8 +13,13 @@ In a hectic society with so much responsibility, spontaneity is all but lost. If
 - Search various events at your current or another selected location
 - Filter genres & tastes
 - Set a radius from the location
-- Create a free account to save events.
+- Create a free account to save events
+## ✏️ Table of Contents
 
+-   [New Feature Updated](#updates)
+-   [Developers](#developers)
+## <a name="updates"></a>🔩 New Feature Updated
+- Added Cypress E2E test, check this out if you are interested to make any contribution and let's build this better together
 
 ## <a name="developers"></a> 💻 Developers
 
