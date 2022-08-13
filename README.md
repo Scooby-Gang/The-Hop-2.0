@@ -1,5 +1,5 @@
 <div align="center">
-   <img width="50px" src="https://img.freepik.com/premium-vector/set-cute-carrots-characters_208206-285.jpg"/>
+   <img width="150px" src="https://img.freepik.com/premium-vector/set-cute-carrots-characters_208206-285.jpg"/>
    <h1>The Hop 2.0</h1>
    <h2>Plan something to do right now!</h2>
    <br />
