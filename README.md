@@ -14,7 +14,7 @@ In a hectic society with so much responsibility, spontaneity is all but lost. If
 - Filter genres & tastes
 - Set a radius from the location
 - Create a free account to save events
-## ✏️ Table of Contents
+## 📓 Table of Contents
 
 -   [New Feature Updated](#updates)
 -   [Developers](#developers)
