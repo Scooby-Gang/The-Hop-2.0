@@ -24,8 +24,11 @@ In a hectic society with so much responsibility, spontaneity is all but lost. If
 
 ## <a name="setup"></a>🛫 Before Start
 Copy `template.env` and create a `.env` file in the project root.
-- Specify the Postgres database connection URI as `DB_URI`.
-- Secret key for auth as `SECRET_KEY`.
+- Specify the Postgres database connection URI as `POSTGRESQL_URI`.
+- Session Secret key for auth as `SESSION_SECRET`.
+- Assign a new session time or keep the current one as `SESSION_MAX_AGE`.
+- Create a google maps API as `GOOGLE_MAPS`.
+- Get a PerdictHQ API for finding your event as `PREDICTHQ_API_KEY`.
 
 ## <a name="developers"></a> 💻 Developers
 
